@@ -23,6 +23,7 @@ module.exports = function (logger, inherits, EventEmitter) {
 			this.brokers.push(broker)
 			this.brokersById[broker.id] = broker
 			logger.info('added', broker.id)
+			broker.setMaxListeners(0);
 			this.emit('added', broker)
 		}
 	}
